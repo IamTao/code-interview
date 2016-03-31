@@ -1,3 +1,5 @@
+package n204-singleton;
+
 class Solution {
     /**
      * @return: The same instance of this class every time
