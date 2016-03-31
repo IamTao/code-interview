@@ -15,4 +15,11 @@ class Solution:
     """
     def buildTree(self, preorder, inorder):
         # write your code here
-        
+        if len(inorder) == 0:
+            return None
+        head        = TreeNode(preorder[0])
+        ind         = inorder.index(head.val)       
+        left, right = inorder[: ind], inorder[ind + 1: ]
+        head.left   = self.buildTree(preorder[1: ind + 1], left)
+        head.right  = self.buildTree(preorder[ind + 1: ], right)
+        return head
